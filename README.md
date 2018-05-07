@@ -2,6 +2,8 @@
 
 > Nuxt.js + Netlify CMS project
 
+A working Demo of the frontend can be found [here](https://nuxtlify.suits.at/). 
+Access to the admin interface is restricted though. 
 ## Build Setup
 
 ``` bash
