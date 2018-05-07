@@ -1,20 +1,17 @@
 <template>
   <article>
     <h1>{{ title }}</h1>
+    <p>created: {{ date }}</p>
+    <p>{{ body }}</p>
+    <img :src="thumbnail" />
+
   </article>
 </template>
 
 <script>
 export default {
   async asyncData({ params }) {
-    // const postPromise = process.BROWSER_BUILD
-    //   ? import('~/content/blog/posts/' + params.slug + '.json')
-    //   : Promise.resolve(
-    //       require('~/content/blog/posts/' + params.slug + '.json')
-    //     );
-
-    let post = await import('~/content/blog/posts/' + params.slug + '.json');
-    return post;
+    return await import('~/content/blog/posts/' + params.slug + '.json');
   }
 };
 </script>
