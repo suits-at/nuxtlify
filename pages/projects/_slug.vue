@@ -2,8 +2,7 @@
   <article>
     <h1>{{ title }}</h1>
     <p>created: {{ date }}</p>
-    <p>{{ body }}</p>
-    <img :src="thumbnail" />
+    <vue-markdown>{{ body }}</vue-markdown>
 
   </article>
 </template>
