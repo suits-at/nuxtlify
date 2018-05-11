@@ -1,16 +1,16 @@
 <template>
   <article>
     <h1>{{ title }}</h1>
-    <p>created: {{ date }}</p>
-    <vue-markdown>{{ body }}</vue-markdown>
-
+    <p> {{ date }}</p>
+    <p> {{url}} </p>
+    <img :src="screenshot"/>
   </article>
 </template>
 
 <script>
 export default {
   async asyncData({ params }) {
-    return await import('~/content/projects/project/' + params.slug + '.json');
+    return await import('~/content/projects/' + params.slug + '.json');
   }
 };
 </script>

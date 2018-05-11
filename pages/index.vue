@@ -16,6 +16,14 @@
         </nuxt-link>
       </li>
     </ul>
+    <h2>Services</h2>
+    <ul>
+      <li v-for="service in services" :key="service.title">
+        <nuxt-link :to="service._path">
+          {{ service.title }}
+        </nuxt-link>
+      </li>
+    </ul>
   </section>
 </template>
 
@@ -36,14 +44,22 @@ export default {
     }));
 
     // Using webpacks context to gather all files from a folder
-    const project_context = require.context('~/content/projects/project/', false, /\.json$/);
+    const project_context = require.context('~/content/projects/', false, /\.json$/);
 
     const projects = project_context.keys().map(key => ({
       ...project_context(key),
       _path: `/projects/${key.replace('.json', '').replace('./', '')}`
     }));
 
-    return { posts, projects };
+    // Using webpacks context to gather all files from a folder
+    const service_context = require.context('~/content/services/', false, /\.json$/);
+
+    const services = service_context.keys().map(key => ({
+      ...service_context(key),
+      _path: `/services/${key.replace('.json', '').replace('./', '')}`
+    }));
+
+    return { posts, projects, services };
   }
 };
 </script>
