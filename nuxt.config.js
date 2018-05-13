@@ -8,6 +8,7 @@ var dynamicRoutes = getDynamicPaths({
   '/blog': 'blog/posts/*.json',
   '/projects': 'projects/*.json',
   '/services': 'services/*.json',
+  '/pages': 'pages/*.json',
 });
 
 

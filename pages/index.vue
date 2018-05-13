@@ -24,6 +24,14 @@
         </nuxt-link>
       </li>
     </ul>
+    <h2>Pages</h2>
+    <ul>
+      <li v-for="page in pages" :key="page.title">
+        <nuxt-link :to="page._path">
+          {{ page.title }}
+        </nuxt-link>
+      </li>
+    </ul>
   </section>
 </template>
 
@@ -59,7 +67,15 @@ export default {
       _path: `/services/${key.replace('.json', '').replace('./', '')}`
     }));
 
-    return { posts, projects, services };
+    // Using webpacks context to gather all files from a folder
+    const page_context = require.context('~/content/pages/', false, /\.json$/);
+
+    const pages = page_context.keys().map(key => ({
+      ...page_context(key),
+      _path: `/pages/${key.replace('.json', '').replace('./', '')}`
+    }));
+
+    return { posts, projects, services, pages};
   }
 };
 </script>
