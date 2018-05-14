@@ -9,7 +9,7 @@
   import VueMarkdown from 'vue-markdown';
   export default {
   async asyncData({ params }) {
-    return await import('~/content/pages/' + params.slug + '.json');
+    return await import('~/content/sites/' + params.slug + '.json');
   },
   components: {
     VueMarkdown

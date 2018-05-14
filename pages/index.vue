@@ -1,13 +1,5 @@
 <template>
   <section class="container">
-    <h2>Blog</h2>
-    <ul>
-      <li v-for="post in posts" :key="post.date">
-        <nuxt-link :to="post._path">
-          {{ post.title }}
-        </nuxt-link>
-      </li>
-    </ul>
     <h2>Projects</h2>
     <ul>
       <li v-for="project in projects" :key="project.date">
@@ -24,11 +16,11 @@
         </nuxt-link>
       </li>
     </ul>
-    <h2>Pages</h2>
+    <h2>Sites</h2>
     <ul>
-      <li v-for="page in pages" :key="page.title">
-        <nuxt-link :to="page._path">
-          {{ page.title }}
+      <li v-for="site in sites" :key="site.title">
+        <nuxt-link :to="site._path">
+          {{ site.title }}
         </nuxt-link>
       </li>
     </ul>
@@ -43,14 +35,6 @@ export default {
     AppLogo
   },
   data() {
-    // Using webpacks context to gather all files from a folder
-    const context = require.context('~/content/blog/posts/', false, /\.json$/);
-
-    const posts = context.keys().map(key => ({
-      ...context(key),
-      _path: `/blog/${key.replace('.json', '').replace('./', '')}`
-    }));
-
     // Using webpacks context to gather all files from a folder
     const project_context = require.context('~/content/projects/', false, /\.json$/);
 
@@ -68,14 +52,14 @@ export default {
     }));
 
     // Using webpacks context to gather all files from a folder
-    const page_context = require.context('~/content/pages/', false, /\.json$/);
+    const site_context = require.context('~/content/sites/', false, /\.json$/);
 
-    const pages = page_context.keys().map(key => ({
-      ...page_context(key),
-      _path: `/pages/${key.replace('.json', '').replace('./', '')}`
+    const sites = site_context.keys().map(key => ({
+      ...site_context(key),
+      _path: `/sites/${key.replace('.json', '').replace('./', '')}`
     }));
 
-    return { posts, projects, services, pages};
+    return { projects, services, sites};
   }
 };
 </script>
