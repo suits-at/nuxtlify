@@ -4,8 +4,8 @@ backend:
 media_folder: "static/images/uploads" # Media files will be stored in the repo under static/images/uploads
 public_folder: "/images/uploads" # The src attribute for uploaded media will begin with /images/uploads
 collections:
-  - name: "sites" # Used in routes, e.g., /admin/collections/blog
-    label: "Sites" # Used in the UI
+  - name: "site" # Used in routes, e.g., /admin/collections/blog
+    label: "Site" # Used in the UI
     folder: "content/sites" # The path to the folder where the documents are stored
     create: true # Allow users to create new documents in this collection
     slug: "{{slug}}" # Filename template, e.g., YYYY-MM-DD-title.md
@@ -14,7 +14,7 @@ collections:
       - {label: "Title", name: "title", widget: "string"}
       - {label: "Content", name: "content", widget: "markdown"}
   - name: "projects" # Used in routes, e.g., /admin/collections/blog
-    label: "Projects" # Used in the UI
+    label: "Project" # Used in the UI
     folder: "content/projects" # The path to the folder where the documents are stored
     create: true # Allow users to create new documents in this collection
     slug: "{{slug}}" # Filename template, e.g., YYYY-MM-DD-title.md
@@ -25,7 +25,7 @@ collections:
       - {label: "URL", name: "url", widget: "string"}
       - {label: "Screenshot", name: "screenshot", widget: "image"}
   - name: "services" # Used in routes, e.g., /admin/collections/blog
-    label: "Services" # Used in the UI
+    label: "Service" # Used in the UI
     folder: "content/services" # The path to the folder where the documents are stored
     create: true # Allow users to create new documents in this collection
     slug: "{{slug}}" # Filename template, e.g., YYYY-MM-DD-title.md
